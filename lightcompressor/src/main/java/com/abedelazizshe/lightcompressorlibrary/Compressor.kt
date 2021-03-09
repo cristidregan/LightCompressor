@@ -451,7 +451,7 @@ object Compressor {
     ): Int {
 
         return when (quality) {
-            VideoQuality.VERY_LOW -> (bitrate * 0.08).roundToInt()
+            VideoQuality.VERY_LOW -> (bitrate * 0.04).roundToInt()
             VideoQuality.LOW -> (bitrate * 0.1).roundToInt()
             VideoQuality.MEDIUM -> (bitrate * 0.2).roundToInt()
             VideoQuality.HIGH -> (bitrate * 0.3).roundToInt()
@@ -479,6 +479,10 @@ object Compressor {
         val newHeight: Int
 
         when {
+            width >= 1280 || height >= 1280 -> {
+                newWidth = (((width * 0.75) / 16).roundToInt() * 16)
+                newHeight = (((height * 0.75) / 16).roundToInt() * 16)
+            }
             width >= 960 || height >= 960 -> {
                 if (width > height) {
                     newWidth = (((MIN_HEIGHT * 0.95) / 16).roundToInt() * 16)
