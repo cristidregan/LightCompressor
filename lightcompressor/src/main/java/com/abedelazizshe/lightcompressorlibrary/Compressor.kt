@@ -15,8 +15,8 @@ import kotlin.math.roundToInt
 object Compressor {
 
     private const val MIN_BITRATE = 2000000
-    private const val MIN_HEIGHT = 640.0
-    private const val MIN_WIDTH = 360.0
+    private const val MIN_HEIGHT = 720.0
+    private const val MIN_WIDTH = 480.0
     private const val FRAME_RATE = 30
     private const val I_FRAME_INTERVAL = 2
     private const val MIME_TYPE = "video/avc"
@@ -479,10 +479,6 @@ object Compressor {
         val newHeight: Int
 
         when {
-            width >= 1280 || height >= 1280 -> {
-                newWidth = (((width * 0.75) / 16).roundToInt() * 16)
-                newHeight = (((height * 0.75) / 16).roundToInt() * 16)
-            }
             width >= 960 || height >= 960 -> {
                 if (width > height) {
                     newWidth = (((MIN_HEIGHT * 0.95) / 16).roundToInt() * 16)
