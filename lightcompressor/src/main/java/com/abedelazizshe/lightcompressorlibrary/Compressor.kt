@@ -479,14 +479,6 @@ object Compressor {
         val newHeight: Int
 
         when {
-            width >= 1920 || height >= 1920 -> {
-                newWidth = (((width * 0.5) / 16).roundToInt() * 16)
-                newHeight = (((height * 0.5) / 16f).roundToInt() * 16)
-            }
-            width >= 1280 || height >= 1280 -> {
-                newWidth = (((width * 0.75) / 16).roundToInt() * 16)
-                newHeight = (((height * 0.75) / 16).roundToInt() * 16)
-            }
             width >= 960 || height >= 960 -> {
                 if (width > height) {
                     newWidth = (((MIN_HEIGHT * 0.95) / 16).roundToInt() * 16)
