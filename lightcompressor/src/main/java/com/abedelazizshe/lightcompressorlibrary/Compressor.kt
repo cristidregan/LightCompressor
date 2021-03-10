@@ -15,7 +15,7 @@ import kotlin.math.roundToInt
 object Compressor {
 
     private const val MIN_BITRATE = 2000000
-    private const val MIN_HEIGHT = 720.0
+    private const val MIN_HEIGHT = 852.0
     private const val MIN_WIDTH = 480.0
     private const val FRAME_RATE = 30
     private const val I_FRAME_INTERVAL = 2
